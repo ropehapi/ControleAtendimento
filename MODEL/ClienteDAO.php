@@ -20,7 +20,7 @@ class ClienteDAO extends Conexao
             $sql->execute();
             return 1;
         } catch (Exception $ex) {
-            echo $ex->getMessage();
+            return -1;
         }
     }
 
@@ -51,7 +51,7 @@ class ClienteDAO extends Conexao
             $sql->execute();
             return 1;
         } catch (\Throwable $th) {
-            echo $th->getMessage();
+            return -1;
         }
         
     }
@@ -67,7 +67,7 @@ class ClienteDAO extends Conexao
             $sql->execute();
             return 1;
         } catch (\Throwable $th) {
-            echo $th->getMessage();
+            return -1;
         }
     }
 }

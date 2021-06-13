@@ -73,7 +73,7 @@ $funcionarios = $ctrl->ConsultarFuncionarios();
                         <!-- /.card-body -->
 
                         <div class="card-footer" align="right">
-                            <button name="btnCadastrar" class="btn btn-success">Cadastrar</button>
+                            <button name="btnCadastrar" onclick="ValidarTela(2)" class="btn btn-success">Cadastrar</button>
                         </div>
                     </form>
                 </div>

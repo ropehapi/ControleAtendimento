@@ -73,7 +73,7 @@ $clientes = $ctrl->ConsultarClientes();
                         <!-- /.card-body -->
 
                         <div class="card-footer" align="right">
-                            <button name="btnCadastrar" class="btn btn-success">Cadastrar</button>
+                            <button name="btnCadastrar" onclick="return ValidarTela(1)" class="btn btn-success">Cadastrar</button>
                         </div>
                     </form>
                 </div>

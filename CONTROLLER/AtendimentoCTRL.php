@@ -5,6 +5,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/MODEL/AtendimentoDAO.
 class AtendimentoCTRL{
     public function InserirAtendimento(AtendimentoVO $vo)
     {
+        if($vo->getCliente()==''||$vo->getFuncionario()==''||$vo->getData()==''||$vo->getValor()==''||$vo->getDescricao()==''){
+            return 0;
+        }
         $dao = new AtendimentoDAO;
         return $dao->InserirAtendimento($vo);
     }
@@ -15,6 +18,9 @@ class AtendimentoCTRL{
     }
 
     public function AlterarAtendimento($id,$idCliente,$idFuncionario,$data,$valor,$descricao){
+        if($id==''||$idCliente==''||$idFuncionario==''||$data==''||$valor==''||$descricao==''){
+            return 0;
+        }
         $dao = new AtendimentoDAO;
         return $dao->AlterarAtendimento($id,$idCliente,$idFuncionario,$data,$valor,$descricao);
     }

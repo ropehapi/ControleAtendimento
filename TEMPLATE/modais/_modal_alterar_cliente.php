@@ -34,7 +34,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button name="btnAlterar" class="btn btn-primary">Alterar</button>
+                <button name="btnAlterar" class="btn btn-primary" onclick="ValidarTela(4)">Alterar</button>
             </div>
         </div>
         <!-- /.modal-content -->

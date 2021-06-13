@@ -62,7 +62,7 @@ if (isset($_POST['btnCadastrar'])) {
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Cliente</label>
-                                    <select name="cliente" class="form-control">
+                                    <select name="cliente" id="cliente" class="form-control">
                                         <option>Selecione</option>
                                         <?php for ($c = 0; $c < count($clientes); $c++) { ?>
                                             <option value="<?= $clientes[$c]['id_cliente'] ?>"><?= $clientes[$c]['nome_cliente'] ?></option>
@@ -71,7 +71,7 @@ if (isset($_POST['btnCadastrar'])) {
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Funcionário</label>
-                                    <select name="funcionario" class="form-control">
+                                    <select name="funcionario" id="funcionario" class="form-control">
                                         <option>Selecione</option>
                                         <?php for ($f = 0; $f < count($funcionarios); $f++) { ?>
                                             <option value="<?= $funcionarios[$f]['id_funcionario'] ?>"><?= $funcionarios[$f]['nome_funcionario'] ?></option>
@@ -84,23 +84,23 @@ if (isset($_POST['btnCadastrar'])) {
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>Data</label>
-                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input name="data" type="text" placeholder="Ex: 28/03/2003" class="form-control datetimepicker-input" data-target="#reservationdate">
+                                    <div class="input-group date" data-target-input="nearest">
+                                        <input name="data" id="data" type="text" placeholder="Ex: 28/03/2003" class="form-control datetimepicker-input" data-target="#reservationdate">
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Valor</label>
-                                    <input name="valor" type="text" class="form-control" placeholder="Ex: 500">
+                                    <input name="valor" id="valor" type="text" class="form-control" placeholder="Ex: 500">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label>Descrição atendimento</label>
-                                <textarea name="descricao" class="form-control" rows="5" placeholder="Digite aqui uma descrição para seu atendimento"></textarea>
+                                <textarea name="descricao" id="descricao" class="form-control" rows="5" placeholder="Digite aqui uma descrição para seu atendimento"></textarea>
                             </div>
                             <br>
                             <div align="right">
-                                <button name="btnCadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button name="btnCadastrar" type="submit" onclick="ValidarTela(3)" class="btn btn-primary">Cadastrar</button>
                             </div>
                         </div>
                     </form>

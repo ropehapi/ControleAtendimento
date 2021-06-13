@@ -12,6 +12,7 @@
 <script src="../TEMPLATE/plugins/toastr/toastr.min.js"></script>
 
 <script src="../TEMPLATE/js/Funcoes.js"></script>
+<script src="../TEMPLATE/js/Validacao.js"></script>
 
 <!-- Page specific script -->
 <script>$(function(){bsCustomFileInput.init();});</script>
