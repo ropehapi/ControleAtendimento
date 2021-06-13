@@ -14,4 +14,16 @@ class ClienteCTRL{
         $dao = new ClienteDAO;
         return $dao->ConsultarClientes();
     }
+
+    public function AlterarCliente($nome, $email, $endereco, $telefone,$id)
+    {
+        $dao =  new ClienteDAO;
+        return $dao->AlterarCliente($nome,$email,$endereco,$telefone,$id);
+    }
+
+    public function ExcluirCliente($id){
+        $dao = new ClienteDAO;
+        return $dao->ExcluirCliente($id);    
+    }
+
 }

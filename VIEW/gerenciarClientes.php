@@ -12,6 +12,10 @@ if (isset($_POST['btnCadastrar'])) {
     $vo->setTelefone($_POST['telefone']);
 
     $ret = $ctrl->InserirCliente($vo);
+} else if (isset($_POST['btnAlterar'])) {
+    $ret = $ctrl->AlterarCliente($_POST['nome_alt'],$_POST['email_alt'],$_POST['endereco_alt'],$_POST['telefone_alt'],$_POST['cod_alt']);
+}else if(isset($_POST['btnExcluir'])){
+    $ret = $ctrl->ExcluirCliente($_POST['cod_item']);
 }
 
 $clientes = $ctrl->ConsultarClientes();
@@ -101,14 +105,21 @@ $clientes = $ctrl->ConsultarClientes();
                                             <td><?= $clientes[$i]['email_cliente'] ?></td>
                                             <td><?= $clientes[$i]['endereco_cliente'] ?></td>
                                             <td><?= $clientes[$i]['telefone_cliente'] ?></td>
+
                                             <td>
-                                                <a class="btn btn-warning btn-xs">Alterar</a>
-                                                <a class="btn btn-danger btn-xs">Excluir</a>
+                                                <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-alterar" onclick="CarregarDadosAlterar('<?= $clientes[$i]['id_cliente'] ?>','<?= $clientes[$i]['nome_cliente'] ?>','<?= $clientes[$i]['email_cliente'] ?>','<?= $clientes[$i]['endereco_cliente'] ?>','<?= $clientes[$i]['telefone_cliente'] ?>')">Alterar</a>
+                                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-excluir" onclick="CarregarDadosExcluir('<?= $clientes[$i]['id_cliente'] ?>','<?= $clientes[$i]['nome_cliente'] ?>')">Excluir</a>
                                             </td>
+
                                         </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+                            <form method="POST" action="gerenciarClientes.php">
+                                <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/modais/_modal_alterar_cliente.php'; ?>
+                                <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/modais/_modal_excluir.php'; 
+                                ?>
+                            </form>
                         </div>
                         <!-- /.card-body -->
                     </div>

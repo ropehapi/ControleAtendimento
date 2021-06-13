@@ -12,6 +12,10 @@ if (isset($_POST['btnCadastrar'])) {
     $vo->setTelefone($_POST['telefone']);
 
     $ret = $ctrl->InserirFuncionario($vo);
+} else if (isset($_POST['btnAlterar'])) {
+    $ret = $ctrl->AlterarFuncionario($_POST['nome_alt'], $_POST['email_alt'], $_POST['endereco_alt'], $_POST['telefone_alt'], $_POST['cod_alt']);
+}else if(isset($_POST['btnExcluir'])){
+    $ret = $ctrl->ExcluirFuncionario($_POST['cod_item']);
 }
 
 $funcionarios = $ctrl->ConsultarFuncionarios();
@@ -102,13 +106,18 @@ $funcionarios = $ctrl->ConsultarFuncionarios();
                                             <td><?= $funcionarios[$i]['endereco_funcionario'] ?></td>
                                             <td><?= $funcionarios[$i]['telefone_funcionario'] ?></td>
                                             <td>
-                                                <a class="btn btn-warning btn-xs">Alterar</a>
-                                                <a class="btn btn-danger btn-xs">Excluir</a>
+                                                <a href="#" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modal-alterar" onclick="CarregarDadosAlterar('<?= $funcionarios[$i]['id_funcionario'] ?>','<?= $funcionarios[$i]['nome_funcionario'] ?>','<?= $funcionarios[$i]['email_funcionario'] ?>','<?= $funcionarios[$i]['endereco_funcionario'] ?>','<?= $funcionarios[$i]['telefone_funcionario'] ?>')">Alterar</a>
+                                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal-excluir" onclick="CarregarDadosExcluir('<?= $funcionarios[$i]['id_funcionario'] ?>','<?= $funcionarios[$i]['nome_funcionario'] ?>')">Excluir</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+                            <form method="POST" action="gerenciarFuncionarios.php">
+                                <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/modais/_modal_alterar_funcionario.php'; ?>
+                                <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/modais/_modal_excluir.php';
+                                ?>
+                            </form>
                         </div>
                         <!-- /.card-body -->
                     </div>

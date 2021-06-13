@@ -112,19 +112,10 @@
                     <!-- /.card -->
                 </div>
 
-                <!-- Main content -->
-                <!-- /.content -->
             </div>
         </div>
-        <!-- /.content-wrapper -->
+    
         <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/_footer.php' ?>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- ./wrapper -->
 
         <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/_scripts.php' ?>
         <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/ProjetoParalelo/TEMPLATE/_msg.php' ?>

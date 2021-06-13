@@ -13,4 +13,16 @@ class FuncionarioCTRL{
         $dao = new FuncionarioDAO;
         return $dao->ConsultarFuncionarios();
     }
+
+    public function AlterarFuncionario($nome, $email, $endereco, $telefone,$id)
+    {
+        $dao =  new FuncionarioDAO;
+        return $dao->AlterarFuncionario($nome,$email,$endereco,$telefone,$id);
+    }
+
+    public function ExcluirFuncionario($id){
+        $dao = new FuncionarioDAO;
+        return $dao->ExcluirFuncionario($id);    
+    }
+
 }
