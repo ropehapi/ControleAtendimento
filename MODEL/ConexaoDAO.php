@@ -5,6 +5,7 @@ define('HOST', 'localhost'); //IP
 define('USER', 'root'); //usuario
 define('PASS', null); //Senha
 define('DB', 'db_projetoParalelo'); //Banco
+define('PORT','3306');
 /**
  * Conexao.class TIPO [Conexão]
  * Descricao: Estabelece conexões com o banco usando SingleTon
@@ -22,7 +23,7 @@ class Conexao {
             //Verifica se a conexão não existe
             if (self::$Connect == null):
 
-                $dsn = 'mysql:host=' . HOST . ';dbname=' . DB;
+                $dsn = 'mysql:host=' . HOST . ';dbname=' . DB .';port=' . PORT;
                 self::$Connect = new PDO($dsn, USER, PASS, null);
             endif;
         } catch (PDOException $e) {
